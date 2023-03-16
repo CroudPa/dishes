@@ -16,6 +16,9 @@
             <Label Content="ООО Посуда" Height="42" VerticalAlignment="Center" HorizontalAlignment="Center" Width="233" FontFamily="Comic Sans MS" FontSize="20" Margin="0,10,0,0"/>
             <Button Content="Выйти" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" DockPanel.Dock="Right" FontFamily="Comic Sans MS" Click="Button_Click" Margin="0 0 5 0"/>
         </DockPanel>
+        <Label x:Name="roleLabel" Content="Роль:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Label x:Name="nameLabel" Content="Имя:" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Label x:Name="surnameLabel" Content="Фамилия:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
 
     </Grid>
 </Window>

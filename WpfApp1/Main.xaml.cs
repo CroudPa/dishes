@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,47 @@ namespace WpfApp1
         public Main()
         {
             InitializeComponent();
+
+            if(GlobalFields.Login is null)
+            {
+                this.CloseToLogin();
+            }
+
+
+            LoadUserData();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void CloseToLogin()
         {
             Login l = new Login();
             l.Show();
             this.Close();
+        }
+
+        public void LoadUserData()
+        {
+            using (SqlConnection con = new SqlConnection(GlobalFields.CONNECTION))
+            {
+                con.Open();
+                var reader = new SqlCommand($"SELECT UserSurname,UserName, RoleName FROM [User] JOIN [Role] ON [Role].RoleID = [UserRole] Where UserLogin='{GlobalFields.Login}'", con).ExecuteReader();
+
+                while (reader.Read())
+                {
+                    GlobalFields.Role = reader.GetString(2);
+                    roleLabel.Content = $"Роль: {reader.GetString(2)}";
+                    nameLabel.Content = $"Имя: {reader.GetString(1)}";
+                    surnameLabel.Content = $"Фамилия: {reader.GetString(0)}";
+                }
+
+                // 
+                // 
+            }
+                
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.CloseToLogin();
         }
     }
 }

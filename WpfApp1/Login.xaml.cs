@@ -100,6 +100,7 @@ namespace WpfApp1
             }
             else
             {
+                GlobalFields.Login = LoginBox.Text;
                 Main m = new Main();
                 m.Show();
                 this.Close();
