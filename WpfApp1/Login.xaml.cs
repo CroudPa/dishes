@@ -40,9 +40,11 @@ namespace WpfApp1
         {
             MessageBox.Show("Проверка не пройдена.");
             logButton.IsEnabled = false;
+            guestLog.IsEnabled = false;
             await Task.Delay(10000);
             logButton.IsEnabled = true;
-            
+            guestLog.IsEnabled = false;
+
         }
         public void onAttempt()
         {
