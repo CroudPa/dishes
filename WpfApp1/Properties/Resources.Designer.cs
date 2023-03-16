@@ -70,7 +70,7 @@ namespace WpfApp1.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на true.
+        ///   Ищет локализованную строку, похожую на false.
         /// </summary>
         internal static string testEnv {
             get {
